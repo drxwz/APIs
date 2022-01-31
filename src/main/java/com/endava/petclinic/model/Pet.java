@@ -1,11 +1,13 @@
 package com.endava.petclinic.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.Date;
 import java.util.Objects;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Pet {
 
     private String name;
@@ -17,10 +19,9 @@ public class Pet {
 
     }
 
-    public Pet(String name, String birthdate, Long id, Owner owner) {
+    public Pet(String name, String birthdate, Owner owner) {
         this.name = name;
         this.birthdate = birthdate;
-        this.id = id;
         this.owner = owner;
     }
 
@@ -61,12 +62,12 @@ public class Pet {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Pet pet = (Pet) o;
-        return Objects.equals(name, pet.name) && Objects.equals(birthdate, pet.birthdate) && Objects.equals(id, pet.id) && Objects.equals(owner, pet.owner);
+        return Objects.equals(name, pet.name) && Objects.equals(birthdate, pet.birthdate) && Objects.equals(owner, pet.owner);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, birthdate, id, owner);
+        return Objects.hash(name, birthdate, owner);
     }
 
     @Override
