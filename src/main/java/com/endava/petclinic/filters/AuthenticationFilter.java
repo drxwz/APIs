@@ -14,7 +14,5 @@ public class AuthenticationFilter implements Filter {
         if (EnvReader.getAdminUsername() != null && EnvReader.getAdminPassword() != null)
             requestSpec.auth().preemptive().basic(EnvReader.getAdminUsername(), EnvReader.getAdminPassword());
         return context.next(requestSpec, responseSpec);
-
     }
-
 }

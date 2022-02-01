@@ -23,7 +23,7 @@ public class LogFilter implements Filter {
                            FilterableResponseSpecification responseSpec,
                            FilterContext context) {
 
-        OutputStream outputStream= new ByteArrayOutputStream();
+        OutputStream outputStream = new ByteArrayOutputStream();
         PrintStream stream = new PrintStream(outputStream);
 
         //print request

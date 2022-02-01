@@ -12,5 +12,4 @@ public class TestBaseClass {
     protected OwnerClient ownerClient = new OwnerClient();
     protected TestDataProvider testDataProvider = new TestDataProvider();
     protected PetClient petClient = new PetClient();
-
 }

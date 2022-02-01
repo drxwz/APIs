@@ -64,7 +64,5 @@ public class CreateOwnerTest extends TestBaseClass {
 
         //THEN
         response.then().statusCode(HttpStatus.SC_BAD_REQUEST);
-
-
     }
 }

@@ -19,14 +19,13 @@ public class FirstTest {
                 .baseUri("http://bhdtest.endava.com")
                 .port(8080)
                 .basePath("petclinic")
-                
+
                 .when()
                 .get("api/owners")
                 .prettyPeek()
                 .then()
                 .statusCode(HttpStatus.SC_OK);
     }
-
 
     @Test
     public void createOwner() {
@@ -40,8 +39,7 @@ public class FirstTest {
                 .basePath("petclinic")
                 .contentType(ContentType.JSON)
                 .body(owner)
-                
-                .when()
+        .when()
                 .post("api/owners")
                 .prettyPeek();
 
@@ -58,7 +56,6 @@ public class FirstTest {
                 .body("pets", empty());
 
         Owner actualOwner = response.as(Owner.class);
-
         assertThat(actualOwner, is(owner));
     }
 
@@ -70,11 +67,10 @@ public class FirstTest {
                 .port(8080)
                 .basePath("petclinic")
                 .pathParam("ownerId", 55)
-                
-                .when()
+        .when()
                 .get("api/owners/{ownerId}")
                 .prettyPeek()
-                .then()
+        .then()
                 .statusCode(HttpStatus.SC_OK);
     }
 
@@ -86,12 +82,10 @@ public class FirstTest {
                 .port(8080)
                 .basePath("petclinic")
                 .pathParam("ownerId", 116)
-                
-                .when()
+        .when()
                 .delete("api/owners/{ownerId}")
                 .prettyPeek()
-                .then()
+        .then()
                 .statusCode(HttpStatus.SC_NO_CONTENT);
-
     }
 }

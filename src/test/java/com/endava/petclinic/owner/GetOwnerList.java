@@ -25,16 +25,13 @@ public class GetOwnerList extends TestBaseClass {
         //WHEN
         Response response = ownerClient.getOwnerList();
 
-
         //THEN
-
 //1
         response.then().statusCode(HttpStatus.SC_OK)
                 .body("find{ it -> it.id == %s}.firstName", withArgs(ownerId), is(owner.getFirstName()));
 //2
         Owner actualOwner = response.body().jsonPath().param("id", ownerId).getObject("find{ it -> it.id == id}", Owner.class);
         assertThat(actualOwner, is(owner));
-
 //3
         List<Owner> ownerList = response.body().jsonPath().getList("", Owner.class);
         assertThat(ownerList, hasItem(owner));

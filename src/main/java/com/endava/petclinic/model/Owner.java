@@ -35,5 +35,4 @@ public class Owner {
             return super.toString();
         }
     }
-
 }

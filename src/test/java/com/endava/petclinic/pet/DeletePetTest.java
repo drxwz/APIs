@@ -36,6 +36,4 @@ public class DeletePetTest extends TestBaseClass {
         //THEN
         response.then().statusCode(HttpStatus.SC_NO_CONTENT);
     }
-
-
 }

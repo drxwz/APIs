@@ -16,19 +16,18 @@ public class OwnerClient {
 
     public Response createOwner(Owner owner) {
 
-        return given().filters( new AuthenticationFilter(), new LogFilter())
+        return given().filters(new AuthenticationFilter(), new LogFilter())
                 .baseUri(getBaseUri())
                 .port(getPort())
                 .basePath(getBasePath())
                 .contentType(ContentType.JSON)
                 .body(owner)
                 .post("/api/owners");
-
     }
 
     public Response getOwnerById(Long ownerId) {
 
-        return given().filters( new AuthenticationFilter(), new LogFilter())
+        return given().filters(new AuthenticationFilter(), new LogFilter())
                 .baseUri(getBaseUri())
                 .port(getPort())
                 .basePath(getBasePath())
@@ -37,16 +36,15 @@ public class OwnerClient {
     }
 
     public Response getOwnerList() {
-        return given().filters( new AuthenticationFilter(), new LogFilter())
+        return given().filters(new AuthenticationFilter(), new LogFilter())
                 .baseUri(getBaseUri())
                 .port(getPort())
                 .basePath(getBasePath())
                 .get("api/owners");
-
     }
 
     public Response deleteOwner(Long ownerId) {
-        return given().filters( new AuthenticationFilter(), new LogFilter())
+        return given().filters(new AuthenticationFilter(), new LogFilter())
                 .baseUri(getBaseUri())
                 .port(getPort())
                 .basePath(getBasePath())
@@ -55,7 +53,7 @@ public class OwnerClient {
     }
 
     public Response updateOwnerById(Long ownerId) {
-        return given().filters( new AuthenticationFilter(), new LogFilter())
+        return given().filters(new AuthenticationFilter(), new LogFilter())
                 .baseUri(getBaseUri())
                 .port(getPort())
                 .basePath(getBasePath())
@@ -63,6 +61,5 @@ public class OwnerClient {
                 .body(ownerId)
                 .contentType(ContentType.JSON)
                 .put("api/owners/{ownerId");
-
     }
 }

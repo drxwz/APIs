@@ -13,24 +13,25 @@ import static io.restassured.RestAssured.given;
 public class PetClient {
 
     private Faker faker = new Faker();
+
     public Response createPet(Pet pet) {
 
-        return given().filters( new AuthenticationFilter(), new LogFilter())
+        return given().filters(new AuthenticationFilter(), new LogFilter())
                 .baseUri(getBaseUri())
                 .port(getPort())
                 .basePath(getBasePath())
                 .contentType(ContentType.JSON)
                 .body(pet)
                 .post("/api/pets");
-
     }
+
     public String getNumberWithDigits(int min, int max) {
         return faker.number().digits(faker.number().numberBetween(min, max));
     }
 
     public Response getPetById(Long petId) {
 
-        return given().filters( new AuthenticationFilter(), new LogFilter())
+        return given().filters(new AuthenticationFilter(), new LogFilter())
                 .baseUri(getBaseUri())
                 .port(getPort())
                 .basePath(getBasePath())
@@ -39,16 +40,15 @@ public class PetClient {
     }
 
     public Response getPetList() {
-        return given().filters( new AuthenticationFilter(), new LogFilter())
+        return given().filters(new AuthenticationFilter(), new LogFilter())
                 .baseUri(getBaseUri())
                 .port(getPort())
                 .basePath(getBasePath())
                 .get("api/pets");
-
     }
 
     public Response deletePet(Long petId) {
-        return given().filters( new AuthenticationFilter(), new LogFilter())
+        return given().filters(new AuthenticationFilter(), new LogFilter())
                 .baseUri(getBaseUri())
                 .port(getPort())
                 .basePath(getBasePath())
@@ -57,7 +57,7 @@ public class PetClient {
     }
 
     public Response updatePetById(Long petId) {
-        return given().filters( new AuthenticationFilter(), new LogFilter())
+        return given().filters(new AuthenticationFilter(), new LogFilter())
                 .baseUri(getBaseUri())
                 .port(getPort())
                 .basePath(getBasePath())
@@ -65,7 +65,6 @@ public class PetClient {
                 .body(petId)
                 .contentType(ContentType.JSON)
                 .put("api/pets/{petId");
-
     }
 }
 
