@@ -19,7 +19,7 @@ public class FirstTest {
                 .baseUri("http://bhdtest.endava.com")
                 .port(8080)
                 .basePath("petclinic")
-                .log().all()
+                
                 .when()
                 .get("api/owners")
                 .prettyPeek()
@@ -40,7 +40,7 @@ public class FirstTest {
                 .basePath("petclinic")
                 .contentType(ContentType.JSON)
                 .body(owner)
-                .log().all()
+                
                 .when()
                 .post("api/owners")
                 .prettyPeek();
@@ -70,7 +70,7 @@ public class FirstTest {
                 .port(8080)
                 .basePath("petclinic")
                 .pathParam("ownerId", 55)
-                .log().all()
+                
                 .when()
                 .get("api/owners/{ownerId}")
                 .prettyPeek()
@@ -86,7 +86,7 @@ public class FirstTest {
                 .port(8080)
                 .basePath("petclinic")
                 .pathParam("ownerId", 116)
-                .log().all()
+                
                 .when()
                 .delete("api/owners/{ownerId}")
                 .prettyPeek()

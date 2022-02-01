@@ -1,7 +1,12 @@
 package com.endava.petclinic.testData;
 
 import com.endava.petclinic.model.Owner;
+import com.endava.petclinic.model.Pet;
+import com.endava.petclinic.model.PetType;
 import com.github.javafaker.Faker;
+
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 
 public class TestDataProvider {
 
@@ -17,8 +22,6 @@ public class TestDataProvider {
         owner.setCity(faker.address().city());
         owner.setTelephone(faker.number().digits(faker.number().numberBetween(1, 11)));
 
-        
-
         return owner;
 
 
@@ -28,4 +31,17 @@ public class TestDataProvider {
         return faker.number().digits(faker.number().numberBetween(min, max));
     }
 
+    public Pet getPet(Owner owner, PetType type) {
+
+        String birthdate = faker.date().birthday().toInstant().atZone(ZoneId.systemDefault())
+                .format(DateTimeFormatter.ofPattern("yyy/MM/dd"));
+
+        Pet pet = new Pet();
+        pet.setName(faker.artist().name());
+        pet.setBirthdate(birthdate);
+        pet.setOwner(owner);
+        pet.setType(type);
+
+        return pet;
+        }
 }

@@ -1,5 +1,7 @@
 package com.endava.petclinic.client;
 
+import com.endava.petclinic.filters.AuthenticationFilter;
+import com.endava.petclinic.filters.LogFilter;
 import com.endava.petclinic.model.Owner;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import io.restassured.http.ContentType;
@@ -14,7 +16,8 @@ public class OwnerClient {
 
     public Response createOwner(Owner owner) {
 
-        return given().baseUri(getBaseUri())
+        return given().filters( new AuthenticationFilter(), new LogFilter())
+                .baseUri(getBaseUri())
                 .port(getPort())
                 .basePath(getBasePath())
                 .contentType(ContentType.JSON)
@@ -25,7 +28,8 @@ public class OwnerClient {
 
     public Response getOwnerById(Long ownerId) {
 
-        return given().baseUri(getBaseUri())
+        return given().filters( new AuthenticationFilter(), new LogFilter())
+                .baseUri(getBaseUri())
                 .port(getPort())
                 .basePath(getBasePath())
                 .pathParam("ownerId", ownerId)
@@ -33,7 +37,8 @@ public class OwnerClient {
     }
 
     public Response getOwnerList() {
-        return given().baseUri(getBaseUri())
+        return given().filters( new AuthenticationFilter(), new LogFilter())
+                .baseUri(getBaseUri())
                 .port(getPort())
                 .basePath(getBasePath())
                 .get("api/owners");
@@ -41,7 +46,8 @@ public class OwnerClient {
     }
 
     public Response deleteOwner(Long ownerId) {
-        return given().baseUri(getBaseUri())
+        return given().filters( new AuthenticationFilter(), new LogFilter())
+                .baseUri(getBaseUri())
                 .port(getPort())
                 .basePath(getBasePath())
                 .pathParam("ownerId", ownerId)
@@ -49,7 +55,8 @@ public class OwnerClient {
     }
 
     public Response updateOwnerById(Long ownerId) {
-        return given().baseUri(getBaseUri())
+        return given().filters( new AuthenticationFilter(), new LogFilter())
+                .baseUri(getBaseUri())
                 .port(getPort())
                 .basePath(getBasePath())
                 .pathParam("ownerId", ownerId)

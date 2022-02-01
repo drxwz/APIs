@@ -29,7 +29,7 @@ public class GetOwnerList extends TestBaseClass {
         //THEN
 
 //1
-        response.prettyPeek().then().statusCode(HttpStatus.SC_OK)
+        response.then().statusCode(HttpStatus.SC_OK)
                 .body("find{ it -> it.id == %s}.firstName", withArgs(ownerId), is(owner.getFirstName()));
 //2
         Owner actualOwner = response.body().jsonPath().param("id", ownerId).getObject("find{ it -> it.id == id}", Owner.class);
