@@ -18,7 +18,7 @@ public class CreatePetTest extends TestBaseClass {
         Owner owner = testDataProvider.getOwner();
         Response createOwnerResponse = ownerClient.createOwner(owner);
         createOwnerResponse.then().statusCode(HttpStatus.SC_CREATED);
-        long id = createOwnerResponse.body().jsonPath().getLong("id");
+        Long id = createOwnerResponse.body().jsonPath().getLong("id");
         owner.setId(id);
 
 

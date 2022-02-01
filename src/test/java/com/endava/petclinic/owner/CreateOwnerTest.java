@@ -12,7 +12,6 @@ import static org.hamcrest.Matchers.notNullValue;
 
 public class CreateOwnerTest extends TestBaseClass {
 
-
     @Test
     public void shouldCreateOwner() {
 
@@ -25,12 +24,10 @@ public class CreateOwnerTest extends TestBaseClass {
         //THEN
         response.then().statusCode(HttpStatus.SC_CREATED)
                 .body("id", is(notNullValue()));
-
     }
 
     @Test
     public void shouldFailToCreateOwnerGivenEmptyFirstName() {
-
         //GIVEN
         Owner owner = testDataProvider.getOwner();
         owner.setFirstName("");
@@ -40,24 +37,19 @@ public class CreateOwnerTest extends TestBaseClass {
 
         //THEN
         response.then().statusCode(HttpStatus.SC_BAD_REQUEST);
-
-
     }
 
     @Test
     public void shouldFailToCreateOwnerGivenFewDigitsTelephone() {
-
         //GIVEN
         Owner owner = testDataProvider.getOwner();
-        owner.setTelephone(testDataProvider.getNumberWithDigits(0,0));
+        owner.setTelephone(testDataProvider.getNumberWithDigits(0, 0));
 
         //WHEN
         Response response = ownerClient.createOwner(owner);
 
         //THEN
         response.then().statusCode(HttpStatus.SC_BAD_REQUEST);
-
-
     }
 
     @Test
@@ -65,7 +57,7 @@ public class CreateOwnerTest extends TestBaseClass {
 
         //GIVEN
         Owner owner = testDataProvider.getOwner();
-        owner.setTelephone(testDataProvider.getNumberWithDigits(11,100));
+        owner.setTelephone(testDataProvider.getNumberWithDigits(11, 100));
 
         //WHEN
         Response response = ownerClient.createOwner(owner);

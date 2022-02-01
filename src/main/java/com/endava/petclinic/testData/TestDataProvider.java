@@ -20,7 +20,7 @@ public class TestDataProvider {
         owner.setLastName(faker.name().lastName());
         owner.setAddress(faker.address().fullAddress());
         owner.setCity(faker.address().city());
-        owner.setTelephone(faker.number().digits(faker.number().numberBetween(1, 11)));
+        owner.setTelephone(faker.number().digits(faker.number().numberBetween(1, 9)));
 
         return owner;
     }
@@ -42,4 +42,5 @@ public class TestDataProvider {
 
         return pet;
         }
+
 }

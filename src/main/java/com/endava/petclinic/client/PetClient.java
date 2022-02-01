@@ -28,5 +28,44 @@ public class PetClient {
         return faker.number().digits(faker.number().numberBetween(min, max));
     }
 
+    public Response getPetById(Long petId) {
+
+        return given().filters( new AuthenticationFilter(), new LogFilter())
+                .baseUri(getBaseUri())
+                .port(getPort())
+                .basePath(getBasePath())
+                .pathParam("petId", petId)
+                .get("/api/pets/{petId}");
+    }
+
+    public Response getPetList() {
+        return given().filters( new AuthenticationFilter(), new LogFilter())
+                .baseUri(getBaseUri())
+                .port(getPort())
+                .basePath(getBasePath())
+                .get("api/pets");
+
+    }
+
+    public Response deletePet(Long petId) {
+        return given().filters( new AuthenticationFilter(), new LogFilter())
+                .baseUri(getBaseUri())
+                .port(getPort())
+                .basePath(getBasePath())
+                .pathParam("petId", petId)
+                .delete("api/pets/{petId}");
+    }
+
+    public Response updatePetById(Long petId) {
+        return given().filters( new AuthenticationFilter(), new LogFilter())
+                .baseUri(getBaseUri())
+                .port(getPort())
+                .basePath(getBasePath())
+                .pathParam("petId", petId)
+                .body(petId)
+                .contentType(ContentType.JSON)
+                .put("api/pets/{petId");
+
+    }
 }
 

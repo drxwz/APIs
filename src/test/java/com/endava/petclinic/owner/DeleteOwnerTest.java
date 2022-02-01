@@ -19,9 +19,7 @@ public class DeleteOwnerTest extends TestBaseClass {
         //WHEN
         Response response = ownerClient.deleteOwner(ownerId);
 
-
         //THEN
-
         response.then().statusCode(HttpStatus.SC_NO_CONTENT);
     }
 }
