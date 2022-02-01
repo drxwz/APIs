@@ -23,8 +23,6 @@ public class TestDataProvider {
         owner.setTelephone(faker.number().digits(faker.number().numberBetween(1, 11)));
 
         return owner;
-
-
     }
 
     public String getNumberWithDigits(int min, int max) {
@@ -33,12 +31,12 @@ public class TestDataProvider {
 
     public Pet getPet(Owner owner, PetType type) {
 
-        String birthdate = faker.date().birthday().toInstant().atZone(ZoneId.systemDefault())
+        String birthDate = faker.date().birthday().toInstant().atZone(ZoneId.systemDefault())
                 .format(DateTimeFormatter.ofPattern("yyy/MM/dd"));
 
         Pet pet = new Pet();
         pet.setName(faker.artist().name());
-        pet.setBirthdate(birthdate);
+        pet.setBirthDate(birthDate);
         pet.setOwner(owner);
         pet.setType(type);
 

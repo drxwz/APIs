@@ -10,7 +10,7 @@
 
     <properties>
         <log4j.version>2.17.1</log4j.version>
-        <env>qa2</env>
+        <env>qa</env>
 
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>

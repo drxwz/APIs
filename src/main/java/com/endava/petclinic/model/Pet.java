@@ -13,7 +13,7 @@ import lombok.RequiredArgsConstructor;
 public class Pet {
 
     private String name;
-    private String birthdate;   //to date or not to date ?
+    private String birthDate;
     private Long id;
     private Owner owner;
     private PetType type;
