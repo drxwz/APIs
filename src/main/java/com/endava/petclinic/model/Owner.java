@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.*;
-import org.apache.commons.lang3.builder.EqualsExclude;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)

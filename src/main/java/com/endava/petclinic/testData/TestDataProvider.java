@@ -4,7 +4,6 @@ import com.endava.petclinic.model.Owner;
 import com.endava.petclinic.model.Pet;
 import com.endava.petclinic.model.PetType;
 import com.github.javafaker.Faker;
-import groovyjarjarantlr4.v4.runtime.atn.SetTransition;
 
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
@@ -31,8 +30,7 @@ public class TestDataProvider {
 
     public Pet getPet(Owner owner, PetType type) {
 
-        String birthDate = faker.date().birthday().toInstant().atZone(ZoneId.systemDefault())
-                .format(DateTimeFormatter.ofPattern("yyy/MM/dd"));
+        String birthDate = faker.date().birthday().toInstant().atZone(ZoneId.systemDefault()).format(DateTimeFormatter.ofPattern("yyy/MM/dd"));
 
         Pet pet = new Pet();
         pet.setName(faker.artist().name());

@@ -13,11 +13,7 @@ public class CreatePetTest extends TestBaseClass {
     @Test
     public void shouldCreatePet() {
         //GIVEN
-        Owner owner = testDataProvider.getOwner();
-        Response createOwnerResponse = ownerClient.createOwner(owner);
-        createOwnerResponse.then().statusCode(HttpStatus.SC_CREATED);
-        Long id = createOwnerResponse.body().jsonPath().getLong("id");
-        owner.setId(id);
+        Owner owner = fixture.createOwner().getOwner();
 
         PetType petType = new PetType();
         petType.setId(1L);

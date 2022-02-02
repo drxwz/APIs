@@ -39,7 +39,7 @@ public class FirstTest {
                 .basePath("petclinic")
                 .contentType(ContentType.JSON)
                 .body(owner)
-        .when()
+                .when()
                 .post("api/owners")
                 .prettyPeek();
 
@@ -67,10 +67,10 @@ public class FirstTest {
                 .port(8080)
                 .basePath("petclinic")
                 .pathParam("ownerId", 55)
-        .when()
+                .when()
                 .get("api/owners/{ownerId}")
                 .prettyPeek()
-        .then()
+                .then()
                 .statusCode(HttpStatus.SC_OK);
     }
 
@@ -82,10 +82,10 @@ public class FirstTest {
                 .port(8080)
                 .basePath("petclinic")
                 .pathParam("ownerId", 116)
-        .when()
+                .when()
                 .delete("api/owners/{ownerId}")
                 .prettyPeek()
-        .then()
+                .then()
                 .statusCode(HttpStatus.SC_NO_CONTENT);
     }
 }

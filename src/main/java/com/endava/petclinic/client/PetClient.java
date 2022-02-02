@@ -1,25 +1,17 @@
 package com.endava.petclinic.client;
 
-import com.endava.petclinic.filters.AuthenticationFilter;
-import com.endava.petclinic.filters.LogFilter;
 import com.endava.petclinic.model.Pet;
 import com.github.javafaker.Faker;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
-import static com.endava.petclinic.util.EnvReader.*;
-import static io.restassured.RestAssured.given;
-
-public class PetClient {
+public class PetClient extends BaseClient {
 
     private Faker faker = new Faker();
 
     public Response createPet(Pet pet) {
 
-        return given().filters(new AuthenticationFilter(), new LogFilter())
-                .baseUri(getBaseUri())
-                .port(getPort())
-                .basePath(getBasePath())
+        return getBasicRestConfig()
                 .contentType(ContentType.JSON)
                 .body(pet)
                 .post("/api/pets");
@@ -31,36 +23,24 @@ public class PetClient {
 
     public Response getPetById(Long petId) {
 
-        return given().filters(new AuthenticationFilter(), new LogFilter())
-                .baseUri(getBaseUri())
-                .port(getPort())
-                .basePath(getBasePath())
+        return getBasicRestConfig()
                 .pathParam("petId", petId)
                 .get("/api/pets/{petId}");
     }
 
     public Response getPetList() {
-        return given().filters(new AuthenticationFilter(), new LogFilter())
-                .baseUri(getBaseUri())
-                .port(getPort())
-                .basePath(getBasePath())
+        return getBasicRestConfig()
                 .get("api/pets");
     }
 
     public Response deletePet(Long petId) {
-        return given().filters(new AuthenticationFilter(), new LogFilter())
-                .baseUri(getBaseUri())
-                .port(getPort())
-                .basePath(getBasePath())
+        return getBasicRestConfig()
                 .pathParam("petId", petId)
                 .delete("api/pets/{petId}");
     }
 
     public Response updatePetById(Long petId) {
-        return given().filters(new AuthenticationFilter(), new LogFilter())
-                .baseUri(getBaseUri())
-                .port(getPort())
-                .basePath(getBasePath())
+        return getBasicRestConfig()
                 .pathParam("petId", petId)
                 .body(petId)
                 .contentType(ContentType.JSON)

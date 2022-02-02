@@ -4,7 +4,6 @@ import com.endava.petclinic.TestBaseClass;
 import com.endava.petclinic.model.Owner;
 import com.endava.petclinic.model.Pet;
 import com.endava.petclinic.model.PetType;
-import com.endava.petclinic.testData.TestDataProvider;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Test;

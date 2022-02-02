@@ -1,8 +1,5 @@
 package com.endava.petclinic.util;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -41,5 +38,17 @@ public class EnvReader {
 
     public static String getAdminPassword() {
         return properties.getProperty("admin.password");
+    }
+
+    public static String getDBUrl(){
+        return properties.getProperty("db.url");
+    }
+
+    public static String getDBUsername(){
+        return properties.getProperty("db.username");
+    }
+
+    public static String getDBPassword(){
+        return properties.getProperty("db.password");
     }
 }
