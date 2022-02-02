@@ -54,12 +54,15 @@ public class TestDataProvider {
     }
 
     public Visits getVisits(Pet pet) {
-        Date now = new Date();
         Visits visits = new Visits();
 
-        visits.setDescription(faker.chuckNorris().fact());
-        visits.setName(faker.lorem().sentence());
-        visits.setVisitDate(faker.date().future(1000, TimeUnit.DAYS).toString());
+        visits.setDescription(faker.medical().diseaseName());
+        String date = faker.date().future(100, TimeUnit.DAYS).toInstant().atZone                        (ZoneId.systemDefault())
+                                .format(DateTimeFormatter
+                                .ofPattern("yyy/MM/dd"));
+        visits.setDate(date);
+        visits.setPet(pet);
+
 
         return visits;
     }

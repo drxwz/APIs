@@ -21,6 +21,7 @@ public class GetPetListTest extends TestBaseClass {
 
         //THEN
         response.then().statusCode(HttpStatus.SC_OK)
-                .body("find{ it -> it.id == %s}.name", withArgs(pet.getId()), is(pet.getName()));
+                .body("find{ it -> it.id == %s}.name",
+                        withArgs(pet.getId()), is(pet.getName()));
     }
 }

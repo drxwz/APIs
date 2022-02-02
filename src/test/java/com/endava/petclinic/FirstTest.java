@@ -14,7 +14,6 @@ public class FirstTest {
 
     @Test
     public void firstTest() {
-
         given()
                 .baseUri("http://bhdtest.endava.com")
                 .port(8080)
@@ -61,7 +60,6 @@ public class FirstTest {
 
     @Test
     public void getOwnerByID() {
-
         given()
                 .baseUri("http://bhdtest.endava.com")
                 .port(8080)
@@ -76,7 +74,6 @@ public class FirstTest {
 
     @Test
     public void deleteOwnerById() {
-
         given()
                 .baseUri("http://bhdtest.endava.com")
                 .port(8080)

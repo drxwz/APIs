@@ -12,7 +12,7 @@ import static org.hamcrest.Matchers.is;
 public class GetPetTypeListTest extends TestBaseClass {
 
     @Test
-    public void shouldGetPetTypeList(){
+    public void shouldGetPetTypeList() {
         //GIVEN
         fixture.createOwner().createPetType().createPet();
         PetType petType = fixture.getPetType();
@@ -22,7 +22,6 @@ public class GetPetTypeListTest extends TestBaseClass {
 
         //THEN
         response.then().statusCode(HttpStatus.SC_OK)
-                .body("find{ it -> it.id == %s}.name", withArgs(petType.getId()),is(petType.getName()));
-
+                .body("find{ it -> it.id == %s}.name", withArgs(petType.getId()), is(petType.getName()));
     }
 }

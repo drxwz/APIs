@@ -9,7 +9,6 @@ import static com.endava.petclinic.util.EnvReader.getBasePath;
 public class OwnerClient extends BaseClient {
 
     public Response createOwner(Owner owner) {
-
         return getBasicRestConfig()
                 .contentType(ContentType.JSON)
                 .body(owner)
@@ -17,7 +16,6 @@ public class OwnerClient extends BaseClient {
     }
 
     public Response getOwnerById(Long ownerId) {
-
         return getBasicRestConfig()
                 .basePath(getBasePath())
                 .pathParam("ownerId", ownerId)

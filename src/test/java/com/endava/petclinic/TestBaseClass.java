@@ -6,7 +6,6 @@ import com.endava.petclinic.client.PetTypeClient;
 import com.endava.petclinic.client.VisitsClient;
 import com.endava.petclinic.extension.TestReporterExtension;
 import com.endava.petclinic.fixture.PetclinicFixture;
-import com.endava.petclinic.model.Visits;
 import com.endava.petclinic.services.DBService;
 import com.endava.petclinic.testData.TestDataProvider;
 import org.junit.jupiter.api.extension.ExtendWith;

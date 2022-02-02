@@ -14,7 +14,6 @@ public class CreateOwnerTest extends TestBaseClass {
 
     @Test
     public void shouldCreateOwner() {
-
         //GIVEN
         Owner owner = testDataProvider.getOwner();
 
@@ -59,7 +58,6 @@ public class CreateOwnerTest extends TestBaseClass {
 
     @Test
     public void shouldFailToCreateOwnerGivenManyDigitsTelephone() {
-
         //GIVEN
         Owner owner = testDataProvider.getOwner();
         owner.setTelephone(testDataProvider.getNumberWithDigits(11, 100));

@@ -6,19 +6,18 @@ import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Test;
 
-public class CreateVisitsTest extends TestBaseClass {
+public class GetVisitsListTest extends TestBaseClass {
 
     @Test
-    public void shouldCreateVisit() {
+    public void shouldGetVisitsList() {
         //GIVEN
         fixture.createOwner().createPetType().createPet();
-        Visits visits = fixture.createVisits().getVisits();
+        Visits visits = fixture.getVisits();
 
         //WHEN
-        Response response = visitsClient.createVisit(visits);
+        Response response = visitsClient.getVisitsList();
 
         //THEN
-        response.then().statusCode(HttpStatus.SC_CREATED);
-
+        response.then().statusCode(HttpStatus.SC_OK);
     }
 }

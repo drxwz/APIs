@@ -16,13 +16,12 @@ public class CreatePetTest extends TestBaseClass {
         fixture.createOwner().createPetType();
         Owner owner = fixture.getOwner();
         PetType petType = fixture.getPetType();
-
-
         Pet pet = testDataProvider.getPet(owner, petType);
 
         //WHEN
         Response response = petClient.createPet(pet);
-//        THEN
+
+        //THEN
         response.then().statusCode(HttpStatus.SC_CREATED);
     }
 }

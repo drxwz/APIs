@@ -11,7 +11,8 @@ public class EnvReader {
     static {
 
         String env = System.getProperty("env");
-        InputStream resourceAsStream = EnvReader.class.getClassLoader().getResourceAsStream("env/" + env + ".properties");
+        InputStream resourceAsStream = EnvReader.class.getClassLoader()
+                .getResourceAsStream("env/" + env + ".properties");
         try {
             properties.load(resourceAsStream);
         } catch (IOException e) {
@@ -20,7 +21,6 @@ public class EnvReader {
     }
 
     public static String getBaseUri() {
-
         return properties.getProperty("baseUri");
     }
 

@@ -10,7 +10,6 @@ public class DeletePetTest extends TestBaseClass {
 
     @Test
     public void shouldDeletePetById() {
-
         //GIVEN
         fixture.createOwner().createPetType().createPet();
         Pet pet = fixture.getPet();

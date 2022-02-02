@@ -2,10 +2,7 @@ package com.endava.petclinic.model;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
+import lombok.*;
 
 @Data
 @NoArgsConstructor
@@ -13,12 +10,9 @@ public class Visits {
 
     @EqualsAndHashCode.Exclude
     private Long id;
-    @NonNull
-    private String name;
-    @NonNull
+    private Pet pet;
     private String description;
-    @NonNull
-    private String visitDate;
+    private String date;
 
     @Override
     public String toString() {

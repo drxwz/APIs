@@ -17,4 +17,10 @@ public class VisitsClient extends BaseClient {
                 .body(visits)
                 .post("/api/visits");
     }
+
+    public Response deleteVisits(Long visitId) {
+        return getBasicRestConfig()
+                .pathParam("visitId", visitId)
+                .delete("api/visits/{visitId}");
+    }
 }
