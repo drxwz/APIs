@@ -1,7 +1,7 @@
-package com.endava.petclinic.pet;
+package com.endava.petclinic.pettype;
 
 import com.endava.petclinic.TestBaseClass;
-import com.endava.petclinic.model.Pet;
+import com.endava.petclinic.model.PetType;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Test;
@@ -9,18 +9,20 @@ import org.junit.jupiter.api.Test;
 import static io.restassured.RestAssured.withArgs;
 import static org.hamcrest.Matchers.is;
 
-public class GetPetListTest extends TestBaseClass {
+public class GetPetTypeListTest extends TestBaseClass {
+
     @Test
-    public void shouldGetPetList() {
+    public void shouldGetPetTypeList(){
         //GIVEN
         fixture.createOwner().createPetType().createPet();
-        Pet pet = fixture.getPet();
+        PetType petType = fixture.getPetType();
 
         //WHEN
-        Response response = petClient.getPetList();
+        Response response = petTypeClient.getPetType();
 
         //THEN
         response.then().statusCode(HttpStatus.SC_OK)
-                .body("find{ it -> it.id == %s}.name", withArgs(pet.getId()), is(pet.getName()));
+                .body("find{ it -> it.id == %s}.name", withArgs(petType.getId()),is(petType.getName()));
+
     }
 }

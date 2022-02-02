@@ -13,10 +13,11 @@ public class CreatePetTest extends TestBaseClass {
     @Test
     public void shouldCreatePet() {
         //GIVEN
-        Owner owner = fixture.createOwner().getOwner();
+        fixture.createOwner().createPetType();
+        Owner owner = fixture.getOwner();
+        PetType petType = fixture.getPetType();
 
-        PetType petType = new PetType();
-        petType.setId(1L);
+
         Pet pet = testDataProvider.getPet(owner, petType);
 
         //WHEN

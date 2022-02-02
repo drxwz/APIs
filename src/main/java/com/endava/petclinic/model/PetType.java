@@ -12,7 +12,7 @@ import lombok.NonNull;
 public class PetType {
 
     @EqualsAndHashCode.Exclude
-    private long id;
+    private Long id;
     @NonNull
     private String name;
 

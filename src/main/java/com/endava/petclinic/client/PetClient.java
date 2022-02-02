@@ -7,7 +7,7 @@ import io.restassured.response.Response;
 
 public class PetClient extends BaseClient {
 
-    private Faker faker = new Faker();
+    private final Faker faker = new Faker();
 
     public Response createPet(Pet pet) {
 
@@ -15,10 +15,6 @@ public class PetClient extends BaseClient {
                 .contentType(ContentType.JSON)
                 .body(pet)
                 .post("/api/pets");
-    }
-
-    public String getNumberWithDigits(int min, int max) {
-        return faker.number().digits(faker.number().numberBetween(min, max));
     }
 
     public Response getPetById(Long petId) {

@@ -40,15 +40,15 @@ public class EnvReader {
         return properties.getProperty("admin.password");
     }
 
-    public static String getDBUrl(){
+    public static String getDBUrl() {
         return properties.getProperty("db.url");
     }
 
-    public static String getDBUsername(){
+    public static String getDBUsername() {
         return properties.getProperty("db.username");
     }
 
-    public static String getDBPassword(){
+    public static String getDBPassword() {
         return properties.getProperty("db.password");
     }
 }

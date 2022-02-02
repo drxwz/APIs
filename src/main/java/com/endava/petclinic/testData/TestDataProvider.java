@@ -10,7 +10,7 @@ import java.time.format.DateTimeFormatter;
 
 public class TestDataProvider {
 
-    private Faker faker = new Faker();
+    private final Faker faker = new Faker();
 
     public Owner getOwner() {
 
@@ -39,5 +39,14 @@ public class TestDataProvider {
         pet.setType(type);
 
         return pet;
+    }
+
+    public PetType getPetType() {
+
+        PetType type = new PetType();
+        type.setName(faker.animal().name());
+
+        return type;
+
     }
 }

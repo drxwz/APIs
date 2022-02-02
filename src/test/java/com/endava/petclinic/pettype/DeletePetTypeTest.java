@@ -1,22 +1,22 @@
-package com.endava.petclinic.pet;
+package com.endava.petclinic.pettype;
 
 import com.endava.petclinic.TestBaseClass;
-import com.endava.petclinic.model.Pet;
+import com.endava.petclinic.model.PetType;
 import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Test;
 
-public class DeletePetTest extends TestBaseClass {
+public class DeletePetTypeTest extends TestBaseClass {
 
     @Test
-    public void shouldDeletePetById() {
+    public void shouldDeletePetTypeById() {
 
         //GIVEN
         fixture.createOwner().createPetType().createPet();
-        Pet pet = fixture.getPet();
+        PetType petType = fixture.getPetType();
 
         //WHEN
-        Response response = petClient.deletePet(pet.getId());
+        Response response = petTypeClient.deletePetType(petType.getId());
 
         //THEN
         response.then().statusCode(HttpStatus.SC_NO_CONTENT);
