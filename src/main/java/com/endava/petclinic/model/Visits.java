@@ -20,7 +20,6 @@ public class Visits {
     @NonNull
     private String visitDate;
 
-
     @Override
     public String toString() {
         ObjectMapper objectMapper = new ObjectMapper();

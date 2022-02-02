@@ -17,8 +17,8 @@ public class TestDataProvider {
     private final Faker faker = new Faker();
 
     public Owner getOwner() {
-
         Owner owner = new Owner();
+
         owner.setFirstName(faker.name().firstName());
         owner.setLastName(faker.name().lastName());
         owner.setAddress(faker.address().fullAddress());
@@ -33,10 +33,10 @@ public class TestDataProvider {
     }
 
     public Pet getPet(Owner owner, PetType type) {
-
         String birthDate = faker.date().birthday().toInstant().atZone(ZoneId.systemDefault()).format(DateTimeFormatter.ofPattern("yyy/MM/dd"));
 
         Pet pet = new Pet();
+
         pet.setName(faker.artist().name());
         pet.setBirthDate(birthDate);
         pet.setOwner(owner);
@@ -46,18 +46,17 @@ public class TestDataProvider {
     }
 
     public PetType getPetType() {
-
         PetType type = new PetType();
+
         type.setName(faker.animal().name());
 
         return type;
-
     }
 
-    public Visits getVisits(Pet pet){
-
+    public Visits getVisits(Pet pet) {
         Date now = new Date();
         Visits visits = new Visits();
+
         visits.setDescription(faker.chuckNorris().fact());
         visits.setName(faker.lorem().sentence());
         visits.setVisitDate(faker.date().future(1000, TimeUnit.DAYS).toString());

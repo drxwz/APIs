@@ -5,6 +5,7 @@ import com.endava.petclinic.client.VisitsClient;
 import com.endava.petclinic.model.Pet;
 import com.endava.petclinic.model.Visits;
 import io.restassured.response.Response;
+import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Test;
 
 public class CreateVisitsTest extends TestBaseClass {
@@ -18,8 +19,10 @@ public class CreateVisitsTest extends TestBaseClass {
         Visits visits = testDataProvider.getVisits(pet);
 
         //WHEN
-        Response response = visitsClient.cr
+        Response response = visitsClient.createVisit(visits);
 
         //THEN
+        response.then().statusCode(HttpStatus.SC_CREATED);
+
     }
 }
