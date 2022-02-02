@@ -3,10 +3,14 @@ package com.endava.petclinic.testData;
 import com.endava.petclinic.model.Owner;
 import com.endava.petclinic.model.Pet;
 import com.endava.petclinic.model.PetType;
+import com.endava.petclinic.model.Visits;
 import com.github.javafaker.Faker;
 
+import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class TestDataProvider {
 
@@ -48,5 +52,16 @@ public class TestDataProvider {
 
         return type;
 
+    }
+
+    public Visits getVisits(Pet pet){
+
+        Date now = new Date();
+        Visits visits = new Visits();
+        visits.setDescription(faker.chuckNorris().fact());
+        visits.setName(faker.lorem().sentence());
+        visits.setVisitDate(faker.date().future(1000, TimeUnit.DAYS).toString());
+
+        return visits;
     }
 }

@@ -1,13 +1,10 @@
 package com.endava.petclinic.client;
 
 import com.endava.petclinic.model.Pet;
-import com.github.javafaker.Faker;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 public class PetClient extends BaseClient {
-
-    private final Faker faker = new Faker();
 
     public Response createPet(Pet pet) {
 

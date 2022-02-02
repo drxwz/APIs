@@ -22,7 +22,7 @@ public class CreatePetTest extends TestBaseClass {
 
         //WHEN
         Response response = petClient.createPet(pet);
-        //THEN
+//        THEN
         response.then().statusCode(HttpStatus.SC_CREATED);
     }
 }

@@ -24,7 +24,7 @@ public class DBService {
             BeanProcessor beanProcessor = new BeanProcessor(mapColumnsToProperties);
             RowProcessor rowProcessor = new BasicRowProcessor(beanProcessor);
 
-            ResultSetHandler<Owner> h = new BeanHandler<Owner>(Owner.class, rowProcessor);
+            ResultSetHandler<Owner> h = new BeanHandler<>(Owner.class, rowProcessor);
 
             QueryRunner runner = new QueryRunner();
             Owner owner = runner.query(conn, "SELECT * from owners where id = ?", h, id);
