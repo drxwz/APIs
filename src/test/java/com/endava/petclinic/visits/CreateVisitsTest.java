@@ -19,6 +19,5 @@ public class CreateVisitsTest extends TestBaseClass {
 
         //THEN
         response.then().statusCode(HttpStatus.SC_CREATED);
-
     }
 }

@@ -57,9 +57,10 @@ public class TestDataProvider {
         Visits visits = new Visits();
 
         visits.setDescription(faker.medical().diseaseName());
-        String date = faker.date().future(100, TimeUnit.DAYS).toInstant().atZone                        (ZoneId.systemDefault())
-                                .format(DateTimeFormatter
-                                .ofPattern("yyy/MM/dd"));
+        String date = faker.date().future(100, TimeUnit.DAYS).toInstant()
+                .atZone(ZoneId.systemDefault())
+                .format(DateTimeFormatter
+                        .ofPattern("yyy/MM/dd"));
         visits.setDate(date);
         visits.setPet(pet);
 
