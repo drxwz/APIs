@@ -1,11 +1,9 @@
 package com.endava.petclinic;
 
-import com.endava.petclinic.client.OwnerClient;
-import com.endava.petclinic.client.PetClient;
-import com.endava.petclinic.client.PetTypeClient;
-import com.endava.petclinic.client.VisitsClient;
+import com.endava.petclinic.client.*;
 import com.endava.petclinic.extension.TestReporterExtension;
 import com.endava.petclinic.fixture.PetclinicFixture;
+import com.endava.petclinic.model.Specialty;
 import com.endava.petclinic.services.DBService;
 import com.endava.petclinic.testData.TestDataProvider;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -18,6 +16,7 @@ public class TestBaseClass {
     protected PetClient petClient = new PetClient();
     protected PetTypeClient petTypeClient = new PetTypeClient();
     protected VisitsClient visitsClient = new VisitsClient();
+    protected SpecialtyClient specialtyClient = new SpecialtyClient();
 
     protected PetclinicFixture fixture = new PetclinicFixture();
 

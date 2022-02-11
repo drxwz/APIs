@@ -85,4 +85,18 @@ public class FirstTest {
                 .then()
                 .statusCode(HttpStatus.SC_NO_CONTENT);
     }
+
+    @Test
+    public void getSpecialty() {
+        given()
+                .baseUri("http://bhdtest.endava.com")
+                .port(8080)
+                .basePath("petclinic")
+
+                .when()
+                .get("api/specialties")
+                .prettyPeek()
+                .then()
+                .statusCode(HttpStatus.SC_OK);
+    }
 }

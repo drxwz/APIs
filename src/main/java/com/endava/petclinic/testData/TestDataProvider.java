@@ -1,15 +1,10 @@
 package com.endava.petclinic.testData;
 
-import com.endava.petclinic.model.Owner;
-import com.endava.petclinic.model.Pet;
-import com.endava.petclinic.model.PetType;
-import com.endava.petclinic.model.Visits;
+import com.endava.petclinic.model.*;
 import com.github.javafaker.Faker;
 
-import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 public class TestDataProvider {
@@ -64,7 +59,14 @@ public class TestDataProvider {
         visits.setDate(date);
         visits.setPet(pet);
 
-
         return visits;
+    }
+
+    public Specialty getSpecialty(){
+        Specialty specialty = new Specialty();
+
+        specialty.setName(faker.ancient().god());
+
+        return specialty;
     }
 }

@@ -1,13 +1,7 @@
 package com.endava.petclinic.fixture;
 
-import com.endava.petclinic.client.OwnerClient;
-import com.endava.petclinic.client.PetClient;
-import com.endava.petclinic.client.PetTypeClient;
-import com.endava.petclinic.client.VisitsClient;
-import com.endava.petclinic.model.Owner;
-import com.endava.petclinic.model.Pet;
-import com.endava.petclinic.model.PetType;
-import com.endava.petclinic.model.Visits;
+import com.endava.petclinic.client.*;
+import com.endava.petclinic.model.*;
 import com.endava.petclinic.testData.TestDataProvider;
 import io.restassured.response.Response;
 import lombok.Getter;
@@ -20,6 +14,7 @@ public class PetclinicFixture {
     private TestDataProvider dataProvider = new TestDataProvider();
     private PetTypeClient petTypeClient = new PetTypeClient();
     private VisitsClient visitsClient = new VisitsClient();
+    private SpecialtyClient specialtyClient = new SpecialtyClient();
 
     @Getter
     private Owner owner;
@@ -29,6 +24,8 @@ public class PetclinicFixture {
     private PetType petType;
     @Getter
     private Visits visits;
+    @Getter
+    private Specialty specialty;
 
     public PetclinicFixture createOwner() {
 
@@ -70,6 +67,16 @@ public class PetclinicFixture {
         visitsResponse.then().statusCode(HttpStatus.SC_CREATED);
         Long visitsId = visitsResponse.body().jsonPath().getLong("id");
         visits.setId(visitsId);
+
+        return this;
+    }
+
+    public PetclinicFixture createSpecialty() {
+        specialty = dataProvider.getSpecialty();
+        Response specialtyResponse = specialtyClient.createSpecialty(this.specialty);
+        specialtyResponse.then().statusCode(HttpStatus.SC_CREATED);
+        long specialtyId = specialtyResponse.body().jsonPath().getLong("id");
+        specialty.setId(specialtyId);
 
         return this;
     }
