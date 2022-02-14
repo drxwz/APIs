@@ -13,7 +13,7 @@ public class DeleteSpecialtyTest extends TestBaseClass {
     public void shouldDeleteSpecialty(){
         //GIVEN
         fixture.createSpecialty();
-        Specialty specialty = fixture.getSpecialty();
+        Specialty specialty = testDataProvider.getSpecialty();
 
         //WHEN
         Response response = specialtyClient.deleteSpecialtyById(specialty.getId());

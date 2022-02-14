@@ -20,7 +20,6 @@ public class Vet {
     private String firstName;
     @NonNull
     private String lastName;
-    @NonNull
     private List<Specialty> specialty;
 
     @Override
