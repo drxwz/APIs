@@ -8,6 +8,7 @@ import lombok.Getter;
 import org.apache.http.HttpStatus;
 
 import java.util.List;
+import java.util.Random;
 
 public class PetclinicFixture {
 
@@ -29,7 +30,7 @@ public class PetclinicFixture {
     @Getter
     private Visits visits;
     @Getter
-    private Specialty specialty;
+    private List<Specialty> specialties;
     @Getter
     private Vet vet;
 
@@ -78,17 +79,21 @@ public class PetclinicFixture {
     }
 
     public PetclinicFixture createSpecialty() {
-        specialty = dataProvider.getSpecialty();
-        Response specialtyResponse = specialtyClient.createSpecialty(this.specialty);
-        specialtyResponse.then().statusCode(HttpStatus.SC_CREATED);
-        Long specialtyId = specialtyResponse.body().jsonPath().getLong("id");
-        specialty.setId(specialtyId);
+        Integer randint = new Random().nextInt( 5);
+        for(int i = 0;i <= randint; i++){
+            Specialty specialty = dataProvider.getSpecialty();
+            Response specialtyResponse = specialtyClient.createSpecialty(specialty);
+            specialtyResponse.then().statusCode(HttpStatus.SC_CREATED);
+            Long specialtyId = specialtyResponse.body().jsonPath().getLong("id");
+            specialty.setId(specialtyId);
+            specialties.add(specialty);
 
+        }
         return this;
     }
 
     public PetclinicFixture createVet() {
-        vet = dataProvider.getVet(specialty);
+        vet = dataProvider.getVet(specialties);
         Response vetResponse = vetClient.createVet(this.vet);
         vetResponse.then().statusCode(HttpStatus.SC_CREATED);
         Long vetId = vetResponse.body().jsonPath().getLong("id");

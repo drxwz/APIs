@@ -15,7 +15,7 @@ public class GetSpecialtyListTest extends TestBaseClass {
     public void shouldGetSpecialtyList(){
         //GIVEN
         fixture.createSpecialty();
-        Specialty specialty = fixture.getSpecialty();
+        Specialty specialty = testDataProvider.getSpecialty();
 
         //WHEN
         Response response = specialtyClient.getSpecialtyList();
