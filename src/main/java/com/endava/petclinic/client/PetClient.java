@@ -7,7 +7,6 @@ import io.restassured.response.Response;
 public class PetClient extends BaseClient {
 
     public Response createPet(Pet pet) {
-
         return getBasicRestConfig()
                 .contentType(ContentType.JSON)
                 .body(pet)
@@ -15,7 +14,6 @@ public class PetClient extends BaseClient {
     }
 
     public Response getPetById(Long petId) {
-
         return getBasicRestConfig()
                 .pathParam("petId", petId)
                 .get("/api/pets/{petId}");
@@ -37,7 +35,7 @@ public class PetClient extends BaseClient {
                 .pathParam("petId", petId)
                 .body(petId)
                 .contentType(ContentType.JSON)
-                .put("api/pets/{petId");
+                .put("api/pets/{petId}");
     }
 }
 

@@ -18,7 +18,7 @@ public class GetSpecialtyListTest extends TestBaseClass {
         Specialty specialty = fixture.getSpecialty();
 
         //WHEN
-        Response response = specialtyClient.getSpecialty();
+        Response response = specialtyClient.getSpecialtyList();
 
         //THEN
         response.then().statusCode(HttpStatus.SC_OK)

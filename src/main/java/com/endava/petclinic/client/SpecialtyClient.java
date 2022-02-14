@@ -6,7 +6,7 @@ import io.restassured.response.Response;
 
 public class SpecialtyClient extends BaseClient{
 
-    public Response getSpecialty(){
+    public Response getSpecialtyList(){
         return getBasicRestConfig()
                 .contentType(ContentType.JSON)
                 .get("/api/specialties");

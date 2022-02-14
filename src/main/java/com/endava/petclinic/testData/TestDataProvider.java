@@ -65,8 +65,18 @@ public class TestDataProvider {
     public Specialty getSpecialty(){
         Specialty specialty = new Specialty();
 
-        specialty.setName(faker.ancient().god());
+        specialty.setName(faker.food().dish());
 
         return specialty;
+    }
+
+    public Vet getVet(Specialty specialty){
+        Vet vet = new Vet();
+
+        vet.setFirstName(faker.name().firstName());
+        vet.setLastName(faker.name().lastName());
+        vet.setSpecialty(specialty);
+
+        return vet;
     }
 }

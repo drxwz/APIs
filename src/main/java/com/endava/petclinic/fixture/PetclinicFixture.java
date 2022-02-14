@@ -7,6 +7,8 @@ import io.restassured.response.Response;
 import lombok.Getter;
 import org.apache.http.HttpStatus;
 
+import java.util.List;
+
 public class PetclinicFixture {
 
     private OwnerClient ownerClient = new OwnerClient();
@@ -15,6 +17,8 @@ public class PetclinicFixture {
     private PetTypeClient petTypeClient = new PetTypeClient();
     private VisitsClient visitsClient = new VisitsClient();
     private SpecialtyClient specialtyClient = new SpecialtyClient();
+    private VetClient vetClient = new VetClient();
+
 
     @Getter
     private Owner owner;
@@ -26,6 +30,8 @@ public class PetclinicFixture {
     private Visits visits;
     @Getter
     private Specialty specialty;
+    @Getter
+    private Vet vet;
 
     public PetclinicFixture createOwner() {
 
@@ -33,7 +39,7 @@ public class PetclinicFixture {
         Response response = ownerClient.createOwner(owner);
         response.then().statusCode(HttpStatus.SC_CREATED);
 
-        long id = response.body().jsonPath().getLong("id");
+        Long id = response.body().jsonPath().getLong("id");
         owner.setId(id);
 
         return this;
@@ -45,7 +51,7 @@ public class PetclinicFixture {
         Response response = petClient.createPet(pet);
         response.then()
                 .statusCode(HttpStatus.SC_CREATED);
-        long petId = response.body().jsonPath().getLong("id");
+        Long petId = response.body().jsonPath().getLong("id");
         pet.setId(petId);
 
         return this;
@@ -75,8 +81,18 @@ public class PetclinicFixture {
         specialty = dataProvider.getSpecialty();
         Response specialtyResponse = specialtyClient.createSpecialty(this.specialty);
         specialtyResponse.then().statusCode(HttpStatus.SC_CREATED);
-        long specialtyId = specialtyResponse.body().jsonPath().getLong("id");
+        Long specialtyId = specialtyResponse.body().jsonPath().getLong("id");
         specialty.setId(specialtyId);
+
+        return this;
+    }
+
+    public PetclinicFixture createVet() {
+        vet = dataProvider.getVet(specialty);
+        Response vetResponse = vetClient.createVet(this.vet);
+        vetResponse.then().statusCode(HttpStatus.SC_CREATED);
+        Long vetId = vetResponse.body().jsonPath().getLong("id");
+        vet.setId(vetId);
 
         return this;
     }

@@ -10,8 +10,11 @@ public class Visits {
 
     @EqualsAndHashCode.Exclude
     private Long id;
+    @NonNull
     private Pet pet;
+    @NonNull
     private String description;
+    @NonNull
     private String date;
 
     @Override

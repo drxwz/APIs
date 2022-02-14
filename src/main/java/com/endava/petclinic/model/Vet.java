@@ -1,5 +1,6 @@
 package com.endava.petclinic.model;
 
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.Data;
@@ -7,20 +8,20 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 
+import java.util.List;
+
 @Data
 @NoArgsConstructor
-public class Pet {
+public class Vet {
 
-    @NonNull
-    private String name;
-    @NonNull
-    private String birthDate;
     @EqualsAndHashCode.Exclude
     private Long id;
     @NonNull
-    private Owner owner;
+    private String firstName;
     @NonNull
-    private PetType type;
+    private String lastName;
+    @NonNull
+    private List<Specialty> specialty;
 
     @Override
     public String toString() {
@@ -31,4 +32,7 @@ public class Pet {
             return super.toString();
         }
     }
+
+
+
 }
