@@ -5,6 +5,8 @@ import com.github.javafaker.Faker;
 
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class TestDataProvider {
@@ -70,12 +72,13 @@ public class TestDataProvider {
         return specialty;
     }
 
-    public Vet getVet(Specialty specialty){
+    public Vet getVet(List<Specialty> specialties){
+
         Vet vet = new Vet();
 
         vet.setFirstName(faker.name().firstName());
         vet.setLastName(faker.name().lastName());
-        vet.setSpecialty(specialty);
+        vet.setSpecialty(specialties);
 
         return vet;
     }
